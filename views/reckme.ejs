@@ -1,0 +1,58 @@
+<%- include common/header%>
+  <body>
+    <div id="wrap">
+    <!-- start navbar -->
+	<%- include common/navbar%>
+	<!--  ./end navbar -->
+    <!--  昵称和心情 -->
+     <div class="container text-center">
+     	<h1>会飞的猪<p class="small"><span class="glyphicon glyphicon-flag"></span>这就是我的个性签名。</p></h1>
+     </div>
+	 <div class="container">
+	  <div class="row">
+	     <div class="col-md-3">
+			 <!--  代办事情组 -->
+			 <%- include common/leftbar%>
+			 <!-- ./结束代办事情组 -->
+         </div>
+		 <div class="list-group col-md-9">
+		 	<% if(!list || list.length==0){ %>
+		   	    <a href="javascript:void(-1);" class="love-group-item">
+	               <h3 class="text-center" style="line-height:230px;">暂时没有动态，有动态我们会及时通知你的哦。</h3>
+	            </a>
+		   <% }else{
+		   	  list.forEach(function(result,index){
+	        %>
+			<a href="javascript:void(-1);" class="love-group-item">
+			   <div class="list-group-item-heading">
+				<button type="button" class="btn btn-link btn-lg" onClick="location.href='/home/<%=result.blog_id%>'"><%=result.title%></button>
+			  </div>
+			   <div class="list-group-item-text">
+			    <%
+			   	  result.relpylist.forEach(function(reply,index){   //循环日志回复
+		        %>
+			    <blockquote>
+				  <p class="text-muted"><%-reply.replycontent%></p>
+				  <small>
+				  <%=reply.author%><span style="padding-left:10px;"><%=dateformat(reply.replytime,'YYYY-MM-DD HH:mm:ss')%></span>
+				  </small>
+				</blockquote>
+				<%})%>
+				<!--
+			   <blockquote>
+				  <p class="text-muted">这只是一条评论留言而已，谢谢。</p>
+				  <small>
+					孙爽<span style="padding-left:10px;">2012-11-21 11:21:22</span>
+				  </small>
+				</blockquote>
+				-->
+			   </div>
+			</a>
+			<%})}%>
+         </div> <!-- ./list-group -->
+      </div> <!-- ./end row -->
+	 </div> <!-- ./end container -->
+    </div> <!-- ./end wrap -->
+    <%- include common/footer%>
+  </body>
+  </html>

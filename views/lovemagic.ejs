@@ -1,0 +1,64 @@
+<%- include common/header%>
+  <body>
+    <div id="wrap">
+    <!-- start navbar -->
+    <%- include common/navbar%>
+	<!--  ./end navbar -->
+	 <div class="container">
+		<div class="page-header text-center">
+			<h1 style="font-weight:bold">Lovepanel推荐的爱情魔力大作一览</h1>
+			<p>看了这些经典大作，你是否按耐不住内心的悸动，你是否也想展现一下自己的儒雅风采，来吧，亲，和我们一起秀出自我，秀出整个世界！</p>
+		</div>
+		<div class="list-group">
+			<% if(bloglist.length==0){ %>
+		   	    <a href="javascript:void(-1);" class="love-group-item">
+                   <h3 class="text-center" style="line-height:300px;">暂时还没有推荐的博客，要不您老亲自发一篇？</h3>
+                </a>
+		   <% } 
+		   	  bloglist.forEach(function(blog,index){
+            %>
+			<a href="javascript:void(-1);" class="love-group-item">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<div style="float:left;color:#000;font-size:35px;font-weight:bold;margin-right:15px"><%=index+1%>.</div>
+						<div class="panel-title"><%=blog.title%>
+							<div class="pull-right">
+								<button type="button" class="btn btn-primary" id="yesbtn<%=index%>" onclick="ajaxYesOrNo('yesbtn<%=index%>','<%=blog._id%>','yes')"><span class="glyphicon glyphicon-thumbs-up"></span>顶一个(<wk><%=blog.yesnum%></wk>)</button>
+								<button type="button" class="btn btn-primary" id="nobtn<%=index%>" onclick="ajaxYesOrNo('nobtn<%=index%>','<%=blog._id%>','no')"><span class="glyphicon glyphicon-thumbs-down"></span>踩一下(<wk><%=blog.nonum%></wk>)</button>
+							</div>
+						</div>
+						<ul class="small list-inline text-muted">
+						  <li>作者：<%=blog.username%></li>
+						  <li>发表于：<%= dateformat(blog.posttime,'YYYY-MM-DD HH:mm:ss')%></li>
+						  <li>浏览数：<%=blog.pvnum%></li>
+						  <li>回复数：<%=blog.replynum%></li>
+						</ul>
+					</div>
+					<div class="panel-body"><%- ellipsis(blog.postcontent,300) %></div>
+					<div class="panel-footer">
+						<button class="btn btn-primary" onClick="location.href='/b/<%=blog._id%>'">阅读全文</button>
+					</div>
+				</div>
+			  </a> 
+			  <% }) %>
+			</div>  <!-- ./日志列表结束 -->
+		</div>
+	 </div>	<!-- ./end wrap -->
+    </div>
+    <%- include common/footer%>
+    <script>
+    	function ajaxYesOrNo(btnid,bid,symbol){
+    		<%if(!user){%>
+	          alert("亲，请先登录哦！");return;
+	        <%}%>
+    		$.post('/b/'+symbol+'/'+bid,function(data){
+    			if(data.success){
+    				$('#'+btnid).find("wk").text('yes'==symbol ? data.yesnum : data.nonum);
+      			}else{
+      				alert(data.msg);
+      			}
+    		});
+    	}
+    </script>
+  </body>
+  </html>

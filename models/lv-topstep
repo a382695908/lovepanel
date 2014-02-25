@@ -1,0 +1,12 @@
+var mongodb = require('./mongodb');
+
+var topstepSchema = new mongodb.Schema({
+	blog_id : {type : mongodb.Schema.Types.ObjectId, required : true, ref : 'LvBlog'},   //博客Id
+	user_id : {type : mongodb.Schema.Types.ObjectId, required : true, ref : 'User'},   //用户Id
+	topstep : Boolean,
+	opeatetime : Date
+},{
+	collection : "lvtopstep"
+});
+
+module.exports = mongodb.model("LvTopstep",topstepSchema);

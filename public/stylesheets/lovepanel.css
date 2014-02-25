@@ -1,0 +1,152 @@
+html,
+body {
+  height: 100%;
+  /*  设置页面的背景色 */
+  background:url(../images/bg.png) repeat;
+}
+
+/* 包括内容区域，使footer置于页尾 */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -100px;
+  /* Pad bottom by footer height */
+  padding: 0 0 100px;
+}
+
+/* 修改carousel的居中展示 */
+#lp-carousel{
+	position:relative;
+	height: 575px;
+	margin-bottom:30px;
+	margin-top:80px;
+}
+.carousel-caption {
+  z-index: 10;
+}
+.carousel .item {
+  height: 575px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 575px;
+}
+
+/* 修改navbar的高度 */
+.navbar{
+	background:#bb7da6;
+	margin-bottom:0px;
+	height:80px;
+}
+.navbar-header > a,
+.navbar-nav > li > a{
+	line-height: 40px;
+	font-size: 18px;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+	color: #FFFFFF;
+	background-color: #9a3467;
+}
+.navbar-default .navbar-nav>li>a,.navbar-default .navbar-brand {
+	color: #FFFFFF;
+}
+.navbar-default{
+	border:0px;
+}
+.navbar-default .navbar-nav > .open > a:focus{
+	background-color:#9A3467;
+	color:white;
+}
+.navbar-text > a{
+	line-height: 50px;
+}
+/*  修改panel */
+.panel{
+	margin-bottom:0;
+	padding:0px;
+}
+.panel-default>.panel-heading{
+	color:#33333;
+	border-color:#e2a6b2;
+}
+.love-group-item{
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	margin-bottom: -1px;
+	background-color: white;
+	border: 1px solid #DDD;
+	cursor:default;
+}
+a.love-group-item:hover,a.love-group-item:focus{
+	text-decoration:none;
+}
+.love-logo{
+	background:url(../images/logo.jpg) no-repeat;
+	width:160px;
+}
+/* 设置页尾的展示样式 */
+#footer{
+	margin-top: 20px;
+	height: 80px;
+    width: 100%;
+	border-top:1px solid #f9aab8;
+}
+#footer .credit {
+    padding:10px 0 0;
+}
+#lp-login-wrap{
+	position:absolute;
+	z-index:2;
+	left:50%;
+	top:50%;
+	margin-top:-234px;
+	margin-left:-250px
+}
+#lp-login{
+	width:500px;
+	z-index: 2;
+	padding:0px;
+}
+#lp-login .panel-heading{
+	background:url(../images/11.jpg) 15px -10px repeat;
+}
+#lp-login .panel-body{
+	padding:30px 60px;
+}
+#lp-register{
+	width: 900px;
+	margin-top: 20px;
+}
+.lp-login-footer{
+	margin:20px 100px;
+}
+.login-mg{
+	margin-bottom:20px;
+}
+.lp-caption{
+	padding-top:7px;
+	text-indent:10px;
+}
+.mg-r-5{
+	margin-right:5px;
+}
+.pd-r-10{
+	padding-right:10px;
+}
+#lp-register .hei_513{
+	height: auto;
+	min-height: 467px;
+	background: url(../images/zc_bg.jpg) no-repeat right #fff;
+	border: 1px solid #DADADA;
+	border-bottom: none;
+}
+#lp-login .hei_513{
+	border-bottom: none;
+	background-color: rgba(255, 255, 255, 0.3); 
+}

@@ -1,0 +1,302 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'D:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--registry=http://registry.npmjs.vitecho.com' ]
+2 info using npm@1.3.14
+3 info using node@v0.10.22
+4 verbose node symlink D:\Program Files\nodejs\\node.exe
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ 'E:\\nodejspace\\lovepanel',
+6 verbose install   [ 'express',
+6 verbose install     'ejs',
+6 verbose install     'connect-flash',
+6 verbose install     'mongoose',
+6 verbose install     'async',
+6 verbose install     'moment',
+6 verbose install     'images' ] ]
+7 info preinstall application-name@0.0.1
+8 verbose readDependencies using package.json deps
+9 verbose already installed skipping express@3.1.0 E:\nodejspace\lovepanel
+10 verbose already installed skipping ejs@* E:\nodejspace\lovepanel
+11 verbose already installed skipping connect-flash@* E:\nodejspace\lovepanel
+12 verbose already installed skipping mongoose@* E:\nodejspace\lovepanel
+13 verbose already installed skipping async@>=0.2.3 E:\nodejspace\lovepanel
+14 verbose already installed skipping moment@* E:\nodejspace\lovepanel
+15 verbose cache add [ 'images@*', null ]
+16 verbose cache add name=undefined spec="images@*" args=["images@*",null]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'images@*',
+17 verbose parsed url   path: 'images@*',
+17 verbose parsed url   href: 'images@*' }
+18 verbose cache add name="images" spec="*" args=["images","*"]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: '*',
+19 verbose parsed url   path: '*',
+19 verbose parsed url   href: '*' }
+20 verbose addNamed [ 'images', '*' ]
+21 verbose addNamed [ null, '*' ]
+22 silly lockFile 25dada35-images images@*
+23 verbose lock images@* C:\Users\wangkun\AppData\Roaming\npm-cache\25dada35-images.lock
+24 silly addNameRange { name: 'images', range: '*', hasData: false }
+25 verbose url raw images
+26 verbose url resolving [ 'http://registry.npmjs.vitecho.com/', './images' ]
+27 verbose url resolved http://registry.npmjs.vitecho.com/images
+28 info trying registry request attempt 1 at 00:17:37
+29 verbose etag "E0EB0E47A4LP3JJTXDRO669G3"
+30 http GET http://registry.npmjs.vitecho.com/images
+31 http 200 http://registry.npmjs.vitecho.com/images
+32 silly registry.get cb [ 200,
+32 silly registry.get   { server: 'nginx/1.2.7',
+32 silly registry.get     date: 'Wed, 25 Dec 2013 16:17:41 GMT',
+32 silly registry.get     'content-type': 'application/json',
+32 silly registry.get     'content-length': '28167',
+32 silly registry.get     connection: 'keep-alive',
+32 silly registry.get     'keep-alive': 'timeout=20',
+32 silly registry.get     vary: 'Accept',
+32 silly registry.get     etag: '"28DGALB0VU9XO2UCDPW52375R"' } ]
+33 silly addNameRange number 2 { name: 'images', range: '*', hasData: true }
+34 silly addNameRange versions [ 'images',
+34 silly addNameRange   [ '1.0.0', '1.0.1', '1.0.2', '1.1.0', '1.1.1', '1.1.2', '1.1.3' ] ]
+35 verbose addNamed [ 'images', '1.1.3' ]
+36 verbose addNamed [ '1.1.3', '1.1.3' ]
+37 silly lockFile f72394ca-images-1-1-3 images@1.1.3
+38 verbose lock images@1.1.3 C:\Users\wangkun\AppData\Roaming\npm-cache\f72394ca-images-1-1-3.lock
+39 silly lockFile 21ecbef2-echo-com-images-images-1-1-3-tgz http://registry.npmjs.vitecho.com/images/-/images-1.1.3.tgz
+40 verbose lock http://registry.npmjs.vitecho.com/images/-/images-1.1.3.tgz C:\Users\wangkun\AppData\Roaming\npm-cache\21ecbef2-echo-com-images-images-1-1-3-tgz.lock
+41 verbose addRemoteTarball [ 'http://registry.npmjs.vitecho.com/images/-/images-1.1.3.tgz',
+41 verbose addRemoteTarball   'f83c9dfb8fbc66d878c28010ce9a3f3eb909968c' ]
+42 info retry fetch attempt 1 at 00:17:42
+43 verbose fetch to= C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\tmp.tgz
+44 http GET http://registry.npmjs.vitecho.com/images/-/images-1.1.3.tgz
+45 http 200 http://registry.npmjs.vitecho.com/images/-/images-1.1.3.tgz
+46 verbose tar unpack C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\tmp.tgz
+47 silly lockFile dce725b3-2098-0-07427185704000294-package tar://C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\package
+48 verbose lock tar://C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\package C:\Users\wangkun\AppData\Roaming\npm-cache\dce725b3-2098-0-07427185704000294-package.lock
+49 silly lockFile 383065f6-2098-0-07427185704000294-tmp-tgz tar://C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\tmp.tgz
+50 verbose lock tar://C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\tmp.tgz C:\Users\wangkun\AppData\Roaming\npm-cache\383065f6-2098-0-07427185704000294-tmp-tgz.lock
+51 silly gunzTarPerm modes [ '755', '644' ]
+52 silly gunzTarPerm extractEntry package.json
+53 silly gunzTarPerm extractEntry .npmignore
+54 silly gunzTarPerm extractEntry README.md
+55 silly gunzTarPerm extractEntry index.js
+56 silly gunzTarPerm extractEntry binding.js
+57 silly gunzTarPerm extractEntry test.js
+58 silly gunzTarPerm extractEntry install.js
+59 silly gunzTarPerm extractEntry src/Raw.cc
+60 silly gunzTarPerm extractEntry src/Gif.cc
+61 silly gunzTarPerm extractEntry src/Image.h
+62 silly gunzTarPerm extractEntry src/Image.cc
+63 silly gunzTarPerm extractEntry src/Bmp.cc
+64 silly gunzTarPerm extractEntry src/Jpeg.cc
+65 silly gunzTarPerm extractEntry src/Png.cc
+66 silly gunzTarPerm extractEntry binding.gyp
+67 silly gunzTarPerm extractEntry demo/uploadServer.js
+68 silly gunzTarPerm extractEntry demo/logo.png
+69 silly gunzTarPerm extractEntry lib/win32/images.node
+70 silly lockFile dce725b3-2098-0-07427185704000294-package tar://C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\package
+71 silly lockFile dce725b3-2098-0-07427185704000294-package tar://C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\package
+72 silly lockFile 383065f6-2098-0-07427185704000294-tmp-tgz tar://C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\tmp.tgz
+73 silly lockFile 383065f6-2098-0-07427185704000294-tmp-tgz tar://C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\tmp.tgz
+74 verbose tar pack [ 'C:\\Users\\wangkun\\AppData\\Roaming\\npm-cache\\images\\1.1.3\\package.tgz',
+74 verbose tar pack   'C:\\Users\\wangkun\\AppData\\Local\\Temp\\npm-6980-WG9WA-Vf\\1387988262098-0.07427185704000294\\package' ]
+75 verbose tarball C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+76 verbose folder C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\package
+77 silly lockFile dce725b3-2098-0-07427185704000294-package tar://C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\package
+78 verbose lock tar://C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\package C:\Users\wangkun\AppData\Roaming\npm-cache\dce725b3-2098-0-07427185704000294-package.lock
+79 silly lockFile d52c935d-m-cache-images-1-1-3-package-tgz tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+80 verbose lock tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz C:\Users\wangkun\AppData\Roaming\npm-cache\d52c935d-m-cache-images-1-1-3-package-tgz.lock
+81 silly lockFile dce725b3-2098-0-07427185704000294-package tar://C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\package
+82 silly lockFile dce725b3-2098-0-07427185704000294-package tar://C:\Users\wangkun\AppData\Local\Temp\npm-6980-WG9WA-Vf\1387988262098-0.07427185704000294\package
+83 silly lockFile d52c935d-m-cache-images-1-1-3-package-tgz tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+84 silly lockFile d52c935d-m-cache-images-1-1-3-package-tgz tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+85 silly lockFile 5ce3e068-g-npm-cache-images-1-1-3-package C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package
+86 verbose lock C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package C:\Users\wangkun\AppData\Roaming\npm-cache\5ce3e068-g-npm-cache-images-1-1-3-package.lock
+87 silly lockFile 5ce3e068-g-npm-cache-images-1-1-3-package C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package
+88 silly lockFile 5ce3e068-g-npm-cache-images-1-1-3-package C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package
+89 verbose tar unpack C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+90 silly lockFile b4a2d842-g-npm-cache-images-1-1-3-package tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package
+91 verbose lock tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package C:\Users\wangkun\AppData\Roaming\npm-cache\b4a2d842-g-npm-cache-images-1-1-3-package.lock
+92 silly lockFile d52c935d-m-cache-images-1-1-3-package-tgz tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+93 verbose lock tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz C:\Users\wangkun\AppData\Roaming\npm-cache\d52c935d-m-cache-images-1-1-3-package-tgz.lock
+94 silly gunzTarPerm modes [ '755', '644' ]
+95 silly gunzTarPerm extractEntry package.json
+96 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+97 silly gunzTarPerm extractEntry .npmignore
+98 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+99 silly gunzTarPerm extractEntry README.md
+100 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+101 silly gunzTarPerm extractEntry binding.js
+102 silly gunzTarPerm modified mode [ 'binding.js', 438, 420 ]
+103 silly gunzTarPerm extractEntry index.js
+104 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+105 silly gunzTarPerm extractEntry test.js
+106 silly gunzTarPerm modified mode [ 'test.js', 438, 420 ]
+107 silly gunzTarPerm extractEntry install.js
+108 silly gunzTarPerm modified mode [ 'install.js', 438, 420 ]
+109 silly gunzTarPerm extractEntry lib/win32/images.node
+110 silly gunzTarPerm modified mode [ 'lib/win32/images.node', 438, 420 ]
+111 silly gunzTarPerm extractEntry binding.gyp
+112 silly gunzTarPerm modified mode [ 'binding.gyp', 438, 420 ]
+113 silly gunzTarPerm extractEntry demo/uploadServer.js
+114 silly gunzTarPerm modified mode [ 'demo/uploadServer.js', 438, 420 ]
+115 silly gunzTarPerm extractEntry demo/logo.png
+116 silly gunzTarPerm modified mode [ 'demo/logo.png', 438, 420 ]
+117 silly gunzTarPerm extractEntry src/Bmp.cc
+118 silly gunzTarPerm modified mode [ 'src/Bmp.cc', 438, 420 ]
+119 silly gunzTarPerm extractEntry src/Gif.cc
+120 silly gunzTarPerm modified mode [ 'src/Gif.cc', 438, 420 ]
+121 silly gunzTarPerm extractEntry src/Image.cc
+122 silly gunzTarPerm modified mode [ 'src/Image.cc', 438, 420 ]
+123 silly gunzTarPerm extractEntry src/Image.h
+124 silly gunzTarPerm modified mode [ 'src/Image.h', 438, 420 ]
+125 silly gunzTarPerm extractEntry src/Jpeg.cc
+126 silly gunzTarPerm modified mode [ 'src/Jpeg.cc', 438, 420 ]
+127 silly gunzTarPerm extractEntry src/Png.cc
+128 silly gunzTarPerm modified mode [ 'src/Png.cc', 438, 420 ]
+129 silly gunzTarPerm extractEntry src/Raw.cc
+130 silly gunzTarPerm modified mode [ 'src/Raw.cc', 438, 420 ]
+131 silly lockFile b4a2d842-g-npm-cache-images-1-1-3-package tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package
+132 silly lockFile b4a2d842-g-npm-cache-images-1-1-3-package tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package
+133 silly lockFile d52c935d-m-cache-images-1-1-3-package-tgz tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+134 silly lockFile d52c935d-m-cache-images-1-1-3-package-tgz tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+135 verbose chmod C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz 644
+136 silly chown skipping for windows C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+137 silly lockFile 21ecbef2-echo-com-images-images-1-1-3-tgz http://registry.npmjs.vitecho.com/images/-/images-1.1.3.tgz
+138 silly lockFile 21ecbef2-echo-com-images-images-1-1-3-tgz http://registry.npmjs.vitecho.com/images/-/images-1.1.3.tgz
+139 silly lockFile f72394ca-images-1-1-3 images@1.1.3
+140 silly lockFile f72394ca-images-1-1-3 images@1.1.3
+141 silly lockFile 25dada35-images images@*
+142 silly lockFile 25dada35-images images@*
+143 silly resolved [ { name: 'images',
+143 silly resolved     version: '1.1.3',
+143 silly resolved     description: 'Cross-platform image decoder(png/jpeg/gif) and encoder(png/jpeg) for Node.js',
+143 silly resolved     main: 'index.js',
+143 silly resolved     scripts:
+143 silly resolved      { test: 'node demo/uploadServer.js',
+143 silly resolved        install: 'node install.js' },
+143 silly resolved     repository:
+143 silly resolved      { type: 'git',
+143 silly resolved        url: 'https://github.com/zhangyuanwei/node-images.git' },
+143 silly resolved     keywords:
+143 silly resolved      [ 'image',
+143 silly resolved        'decoder',
+143 silly resolved        'encoder',
+143 silly resolved        'png',
+143 silly resolved        'jpeg',
+143 silly resolved        'gif',
+143 silly resolved        'cross-platform',
+143 silly resolved        'images' ],
+143 silly resolved     author: { name: 'ZhangYuanwei', email: 'zhangyuanwei1988@gmail.com' },
+143 silly resolved     license: 'BSD',
+143 silly resolved     gypfile: true,
+143 silly resolved     readmeFilename: 'README.md',
+143 silly resolved     gitHead: '9d113b6258e8c53768883e950474370854bdc3bb',
+143 silly resolved     readme: '![images logo](https://raw.github.com/zhangyuanwei/node-images/master/demo/logo.png)\n===========\n\nCross-platform image decoder(png/jpeg/gif) and encoder(png/jpeg) for Node.js  \nNode.js轻量级跨平台图像编解码库\n\n``` javascript\nvar images = require("images");\n\nimages("input.jpg")                     //Load image from file \n                                        //加载图像文件\n    .size(400)                          //Geometric scaling the image to 400 pixels width\n                                        //等比缩放图像到400像素宽\n    .draw(images("logo.png"), 10, 10)   //Drawn logo at coordinates (10,10)\n                                        //在(10,10)处绘制Logo\n    .save("output.jpg", {               //Save the image to a file,whih quality 50\n        quality : 50                    //保存图片到文件,图片质量为50\n\t});\n```\n## Features 功能特性\n\n* Lightweight:no need to install any image processing library.\n* 轻量级：无需安装任何图像处理库。\n* Cross-platform: Released a compiled .node file on windows, just download and start.\n* 跨平台：Windows下发布了编译好的.node文件,下载就能用。\n* Easy-to-use: Provide jQuery-like chaining API.Simple and reliable!\n* 方便用：jQuery风格的API，简单可依赖。\n\n## Installation 安装\n\t$ npm install images\n\n## API 接口\n\nnode-images provide jQuery-like Chaining API,You can start the chain like this:  \nnode-images 提供了类似jQuery的链式调用API,您可以这样开始:\n\n```javascript\n/* Load and decode image from file */\n/* 从指定文件加载并解码图像 */\nimages(file)\n\n/* Create a new transparent image */\n/* 创建一个指定宽高的透明图像 */\nimages(width, height)\n\n/* Load and decode image from a buffer */\n/* 从Buffer数据中解码图像 */\nimages(buffer[, start[, end]])\n\n/* Copy from another image */\n/* 从另一个图像中复制区域来创建图像 */\nimages(image[, x, y, width, height])\n```\n\n### images(file)\nLoad and decode image from file  \n从指定文件加载并解码图像\n\n### images(width, height)\nCreate a new transparent image  \n创建一个指定宽高的透明图像\n\n### images(buffer[, start[, end]])\nLoad and decode image from a buffer  \n从Buffer数据中解码图像\n\n### images(image[, x, y, width, height])\nCopy from another image  \n从另一个图像中复制区域来创建图像\n\n### .fill(red, green, blue[, alpha])\neg:`images(200, 100).fill(0xff, 0x00, 0x00, 0.5)`\nFill image with color  \n以指定颜色填充图像\n\n### .draw(image, x, y)\nDraw *image* on the current image position( *x* , *y* )  \n在当前图像( *x* , *y* )上绘制 *image* 图像\n\n### .encode(type[, config])\neg:`images("input.png").encode("jpg", {operation:50})`\nEncode image to buffer, *config* is image setting.  \n以指定格式编码当前图像到Buffer，config为图片设置，目前支持设置JPG图像质量  \nReturn buffer  \n返回填充好的Buffer  \n**Note:The operation will cut off the chain**  \n**注意:该操作将会切断调用链**  \nSee:.save(file[, type[, config]])\n参考:.save(file[, type[, config]])\n\n### .save(file[, type[, config]])\neg:`images("input.png").encode("output.jpg", {operation:50})`\nEncoding and save the current image to a *file*, if the *type* is not specified, *type* well be automatically determined according to the *file*, *config* is image setting. eg: `{ operation:50 }`  \n编码并保存当前图像到 *file* ,如果type未指定,则根据 *file* 自动判断文件类型，config为图片设置，目前支持设置JPG图像质量\n\n### .size([width[, height]])\nGet size of the image or set the size of the image,if the height is not specified, then scaling based on the current width and height  \n获取或者设置图像宽高，如果height未指定，则根据当前宽高等比缩放\n\n### .width([width])\nGet width for the image or set width of the image  \n获取或设置图像宽度\n\n### .height([height])\nGet height for the image or set height of the image  \n获取或设置图像高度\n\n### images.setLimit(width, height)\nSet the limit size of each image  \n设置库处理图片的大小限制,设置后对所有新的操作生效(如果超限则抛出异常)。\n',
+143 silly resolved     bugs: { url: 'https://github.com/zhangyuanwei/node-images/issues' },
+143 silly resolved     homepage: 'https://github.com/zhangyuanwei/node-images',
+143 silly resolved     _id: 'images@1.1.3',
+143 silly resolved     dist: { shasum: '658b471eb06f7f10bfb710bf5aa977eda70dcda9' },
+143 silly resolved     _from: 'images@*',
+143 silly resolved     _resolved: 'http://registry.npmjs.vitecho.com/images/-/images-1.1.3.tgz' } ]
+144 info install images@1.1.3 into E:\nodejspace\lovepanel
+145 info installOne images@1.1.3
+146 info E:\nodejspace\lovepanel\node_modules\images unbuild
+147 verbose tar unpack C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+148 silly lockFile 0fc4af53-ce-lovepanel-node-modules-images tar://E:\nodejspace\lovepanel\node_modules\images
+149 verbose lock tar://E:\nodejspace\lovepanel\node_modules\images C:\Users\wangkun\AppData\Roaming\npm-cache\0fc4af53-ce-lovepanel-node-modules-images.lock
+150 silly lockFile d52c935d-m-cache-images-1-1-3-package-tgz tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+151 verbose lock tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz C:\Users\wangkun\AppData\Roaming\npm-cache\d52c935d-m-cache-images-1-1-3-package-tgz.lock
+152 silly gunzTarPerm modes [ '755', '644' ]
+153 silly gunzTarPerm extractEntry package.json
+154 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+155 silly gunzTarPerm extractEntry .npmignore
+156 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+157 silly gunzTarPerm extractEntry README.md
+158 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+159 silly gunzTarPerm extractEntry binding.js
+160 silly gunzTarPerm modified mode [ 'binding.js', 438, 420 ]
+161 silly gunzTarPerm extractEntry index.js
+162 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+163 silly gunzTarPerm extractEntry test.js
+164 silly gunzTarPerm modified mode [ 'test.js', 438, 420 ]
+165 silly gunzTarPerm extractEntry install.js
+166 silly gunzTarPerm modified mode [ 'install.js', 438, 420 ]
+167 silly gunzTarPerm extractEntry lib/win32/images.node
+168 silly gunzTarPerm modified mode [ 'lib/win32/images.node', 438, 420 ]
+169 silly gunzTarPerm extractEntry binding.gyp
+170 silly gunzTarPerm modified mode [ 'binding.gyp', 438, 420 ]
+171 silly gunzTarPerm extractEntry demo/uploadServer.js
+172 silly gunzTarPerm modified mode [ 'demo/uploadServer.js', 438, 420 ]
+173 silly gunzTarPerm extractEntry demo/logo.png
+174 silly gunzTarPerm modified mode [ 'demo/logo.png', 438, 420 ]
+175 silly gunzTarPerm extractEntry src/Bmp.cc
+176 silly gunzTarPerm modified mode [ 'src/Bmp.cc', 438, 420 ]
+177 silly gunzTarPerm extractEntry src/Gif.cc
+178 silly gunzTarPerm modified mode [ 'src/Gif.cc', 438, 420 ]
+179 silly gunzTarPerm extractEntry src/Image.cc
+180 silly gunzTarPerm modified mode [ 'src/Image.cc', 438, 420 ]
+181 silly gunzTarPerm extractEntry src/Image.h
+182 silly gunzTarPerm modified mode [ 'src/Image.h', 438, 420 ]
+183 silly gunzTarPerm extractEntry src/Jpeg.cc
+184 silly gunzTarPerm modified mode [ 'src/Jpeg.cc', 438, 420 ]
+185 silly gunzTarPerm extractEntry src/Png.cc
+186 silly gunzTarPerm modified mode [ 'src/Png.cc', 438, 420 ]
+187 silly gunzTarPerm extractEntry src/Raw.cc
+188 silly gunzTarPerm modified mode [ 'src/Raw.cc', 438, 420 ]
+189 silly lockFile 0fc4af53-ce-lovepanel-node-modules-images tar://E:\nodejspace\lovepanel\node_modules\images
+190 silly lockFile 0fc4af53-ce-lovepanel-node-modules-images tar://E:\nodejspace\lovepanel\node_modules\images
+191 silly lockFile d52c935d-m-cache-images-1-1-3-package-tgz tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+192 silly lockFile d52c935d-m-cache-images-1-1-3-package-tgz tar://C:\Users\wangkun\AppData\Roaming\npm-cache\images\1.1.3\package.tgz
+193 info preinstall images@1.1.3
+194 verbose readDependencies using package.json deps
+195 verbose readDependencies using package.json deps
+196 silly resolved []
+197 verbose about to build E:\nodejspace\lovepanel\node_modules\images
+198 info build E:\nodejspace\lovepanel\node_modules\images
+199 verbose linkStuff [ false, false, false, 'E:\\nodejspace\\lovepanel\\node_modules' ]
+200 info linkStuff images@1.1.3
+201 verbose linkBins images@1.1.3
+202 verbose linkMans images@1.1.3
+203 verbose rebuildBundles images@1.1.3
+204 info install images@1.1.3
+205 verbose unsafe-perm in lifecycle true
+206 info images@1.1.3 Failed to exec install script
+207 info E:\nodejspace\lovepanel\node_modules\images unbuild
+208 info preuninstall images@1.1.3
+209 info uninstall images@1.1.3
+210 verbose true,E:\nodejspace\lovepanel\node_modules,E:\nodejspace\lovepanel\node_modules unbuild images@1.1.3
+211 info postuninstall images@1.1.3
+212 error images@1.1.3 install: `node install.js`
+212 error Exit status 8
+213 error Failed at the images@1.1.3 install script.
+213 error This is most likely a problem with the images package,
+213 error not with npm itself.
+213 error Tell the author that this fails on your system:
+213 error     node install.js
+213 error You can get their info via:
+213 error     npm owner ls images
+213 error There is likely additional logging output above.
+214 error System Windows_NT 6.2.9200
+215 error command "D:\\Program Files\\nodejs\\\\node.exe" "D:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "--registry=http://registry.npmjs.vitecho.com"
+216 error cwd E:\nodejspace\lovepanel
+217 error node -v v0.10.22
+218 error npm -v 1.3.14
+219 error code ELIFECYCLE
+220 verbose exit [ 1, true ]

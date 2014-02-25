@@ -1,0 +1,44 @@
+127.0.0.1 - - [Sat Dec 21 2013 15:19:22 GMT+0800 (中国标准时间)] "/s/aokunsang" 
+Error: Failed to lookup view "/userhome"
+    at Function.app.render (E:\nodejspace\lovepanel\node_modules\express\lib\application.js:493:17)
+    at ServerResponse.res.render (E:\nodejspace\lovepanel\node_modules\express\lib\response.js:753:7)
+    at E:\nodejspace\lovepanel\routes\blog.js:49:7
+    at callbacks (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:161:37)
+    at param (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:135:11)
+    at param (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:132:11)
+    at pass (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:142:5)
+    at Router._dispatch (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:170:5)
+    at Object.router (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:33:10)
+    at next (E:\nodejspace\lovepanel\node_modules\express\node_modules\connect\lib\proto.js:199:15)
+127.0.0.1 - - [Sat Dec 21 2013 15:20:26 GMT+0800 (中国标准时间)] "/s/aokunsang" 
+Error: Failed to lookup view "/userhome"
+    at Function.app.render (E:\nodejspace\lovepanel\node_modules\express\lib\application.js:493:17)
+    at ServerResponse.res.render (E:\nodejspace\lovepanel\node_modules\express\lib\response.js:753:7)
+    at E:\nodejspace\lovepanel\routes\blog.js:49:7
+    at callbacks (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:161:37)
+    at param (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:135:11)
+    at param (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:132:11)
+    at pass (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:142:5)
+    at Router._dispatch (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:170:5)
+    at Object.router (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:33:10)
+    at next (E:\nodejspace\lovepanel\node_modules\express\node_modules\connect\lib\proto.js:199:15)
+127.0.0.1 - - [Sat Dec 21 2013 15:20:42 GMT+0800 (中国标准时间)] "/s/aokunsang" 
+TypeError: E:\nodejspace\lovepanel\views\userhome.ejs:9
+    7|     <!--  昵称和心情 -->
+    8|      <div class="container text-center">
+ >> 9|      	<h1><%=userinfo.nickname%><p class="small"><span class="glyphicon glyphicon-flag"></span><%=userinfo.moodsign%></p></h1>
+    10|      </div>
+    11| 	 <div class="container">
+    12| 			<!-- 日志列表开始 -->
+
+Cannot read property 'nickname' of null
+    at eval (eval at <anonymous> (E:\nodejspace\lovepanel\node_modules\ejs\lib\ejs.js:234:12), <anonymous>:33:173)
+    at E:\nodejspace\lovepanel\node_modules\ejs\lib\ejs.js:239:15
+    at Object.exports.render (E:\nodejspace\lovepanel\node_modules\ejs\lib\ejs.js:277:13)
+    at View.exports.renderFile [as engine] (E:\nodejspace\lovepanel\node_modules\ejs\lib\ejs.js:303:22)
+    at View.render (E:\nodejspace\lovepanel\node_modules\express\lib\view.js:75:8)
+    at Function.app.render (E:\nodejspace\lovepanel\node_modules\express\lib\application.js:504:10)
+    at ServerResponse.res.render (E:\nodejspace\lovepanel\node_modules\express\lib\response.js:753:7)
+    at E:\nodejspace\lovepanel\routes\blog.js:49:7
+    at callbacks (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:161:37)
+    at param (E:\nodejspace\lovepanel\node_modules\express\lib\router\index.js:135:11)

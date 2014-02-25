@@ -1,0 +1,101 @@
+<%- include common/header%>
+  <body style="overflow:hidden;width:100%" scroll="no">
+	  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title">找回密码</h4>
+		  </div>
+		  <div class="modal-body">
+			<p>我们已经发送了一封邮件到你的邮箱36227112@qq.com，请注意查收，谢谢！</p>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		  </div>
+		</div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	  <img id="loginbgimg" src="images/love-005.jpg">
+	  <div id="lp-login-wrap">
+	  <div class="alert alert-warning alert-dismissable" style="display:none">
+	  	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  		<strong>Warning!</strong><span id="errorMsg"><span>
+	  </div>
+	  <div id="lp-login">
+	  	<% if(error){ %>
+		<div class="alert alert-danger alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		    <label>Oh,No!</label> <%= error %>
+		 </div>
+		 <% } %>
+	  	<div class="hei_513 panel panel-default" style="min-height:300px;">
+	  		<div class="panel-heading text-center">
+				<strong style="font-size:24px;">欢迎登录</strong>
+				<p class="small">欢迎来到爱情面板！如果您还没有LovePanel帐户，点击此处<a href="/register"><strong>立即注册</strong></a></p>
+			</div>
+			<div class="panel-body">
+				<form id="myform" class="form-horizontal" role="form" method="post" action="/login">
+					<div class="input-group input-group-lg login-mg">
+					  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+					  <input type="text" name="username" class="form-control" placeholder="Username" data-trigger="manual" data-container="body" data-content="用户名不能为空!">
+					</div>
+					<div class="input-group input-group-lg login-mg">
+					  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+					  <input type="password" name="password" class="form-control" placeholder="Password" data-trigger="manual" data-container="body" data-content="密码不能为空!">
+					</div>
+					<div class="form-group">
+						<div class="col-md-8">
+							<button id="loginbtn" data-loading-text="正在登录..." type="submit" class="btn btn-danger btn-lg btn-block">登录</button>
+						</div>
+						<label class="col-md-4" style="line-height:50px;">
+							<a href="#myModal"  data-toggle="modal">忘记密码？</a>
+						</label>
+					</div>
+					<span class="help-block">其他方式登录：<a class="pd-r-10" href="javascript:void(-1);">QQ登录</a>
+					<a class="pd-r-10" href="javascript:void(-1);">支付宝</a><a class="pd-r-10" href="javascript:void(-1);">新浪微博</a></span>
+				</form>
+			</div>
+		 </div>
+		<!--  <div class="suc_botm"></div>  -->
+		<!-- 页尾 -->
+        <div class="container lp-login-footer">
+			  <p class="credit"><abbr title="这是个好网站">爱情面板</abbr>©2013 All Rights Reserved <a href="http://aokunsang.iteye.com">王坤</a> and <a href="http://user.qzone.qq.com/364164801">孙小爽</a>.
+	   </div>
+	</div>
+	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/javascripts/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/javascripts/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+			$("#loginbgimg").css({width:$(document.body).width(),height:$(document.body).height()});
+			$("#myform").submit(function(){
+				var _username = $("input[name='username']");
+				var _password = $("input[name='password']");
+				if(_username.val() == ""){
+					_username.popover('show');return false;
+				}
+				if(_password.val() == ""){
+					_password.popover('show');return false;
+				}
+				$("#loginbtn").button("loading");
+			});
+			$("input[name='username']").on('shown.bs.popover', function () {
+				setTimeout(function(){
+					$("input[name='username']").popover('hide');
+				},"800");
+			});
+			$("input[name='password']").on('shown.bs.popover', function () {
+			   setTimeout(function(){
+					$("input[name='password']").popover('hide');
+				},"800");
+			});
+		})
+		$(window).resize(function(){
+			$("#loginbgimg").css({width:$(document.body).width(),height:$(document.body).height()});
+		})
+	</script>
+  </body>
+</html>

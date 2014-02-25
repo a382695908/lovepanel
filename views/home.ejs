@@ -1,0 +1,108 @@
+<%- include common/header%>
+  <body>
+    <div id="wrap">
+    <!-- start navbar -->
+    <%- include common/navbar%>
+	<!--  ./end navbar -->
+    <!--  昵称和心情 -->
+     <div class="container text-center">
+     	<h1><%=user.nickname%><p class="small"><span class="glyphicon glyphicon-flag"></span><span id="moodsignid"><%=user.moodsign%></span></p></h1>
+     </div>
+	 <div class="container">
+	    <div class="row">
+	        <div class="col-md-3">
+			 <!--  代办事情组 -->
+			 <%- include common/leftbar%>
+			 <!-- ./结束代办事情组 -->
+            </div>
+			<!-- 日志列表开始 -->
+			<div class="list-group col-md-9">
+			 <a href="javascript:void(-1);"  class="love-group-item">
+				<form class="form-inline" role="form">
+				 <div class="form-group">
+				 	 <div id="debugalert" style="display:none" class="alert alert-dismissable">
+		                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		                <label></label>
+		             </div>
+					<label class="sr-only" for="inputgexing">发表心情</label>
+					<textarea class="form-control" rows="3" cols="100%" id="inputgexing" placeholder="发表个性签名"></textarea>
+				  </div>
+				  <button type="button" id="gxbtn" class="btn btn-primary btn-lg" style="line-height:2.83">发表</button>
+				</form>
+			  </a>
+			  <% if(bloglist.length==0){ %>
+			   	    <a href="javascript:void(-1);" class="love-group-item">
+                       <h3 class="text-center" style="line-height:300px;">博主估计是枚懒蛋儿，还没有发表一篇博客呢。</h3>
+                    </a>
+			   <% } 
+			   	  bloglist.forEach(function(blog,index){
+                %>
+                <a href="javascript:void(-1);" class="love-group-item">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<p class="small">发表时间：<%= dateformat(blog.posttime,'YYYY-MM-DD HH:mm:ss')%></p>
+						<h3><%=blog.title%></h3>
+						<ul class="small list-inline text-muted">
+		                  <li>浏览数：<%=blog.pvnum%></li>
+		                  <li>回复数：<%=blog.replynum%></li>
+		                  <li>顶：<%=blog.yesnum%></li>
+		                  <li>踩：<%=blog.nonum%></li>
+		                </ul>
+					</div>
+					<div class="panel-body"><%- ellipsis(blog.postcontent,300) %></div>
+					<div class="panel-footer">
+						<button class="btn btn-primary" onClick="location.href='/home/<%=blog._id%>'">阅读全文</button>
+					</div>
+				</div>
+			  </a>
+                <% }) %>
+			</div>  <!-- ./日志列表结束 -->
+		</div>
+		<div class="row" style="margin-right:0;margin-left:-10px">
+			<% if(bloglist.length > 0) { %>
+			<!-- 分页开始 -->
+			<div class="col-md-offset-3 col-md-9 text-center"  style="background-color: white;border: 1px solid #DDD;margin-top:-20px">
+				<ul class="pagination pagination-lg">
+				  <% if(page.pagenum <= 1){ %>
+				  <li class="disabled"><a href="javscript:void(-1);">&laquo;</a></li>
+				  <li class="disabled"><a href="javscript:void(-1);">上一页</a></li>
+				  <% }else{ %>
+				  <li><a href="/u/home?p=1">&laquo;</a></li>
+				  <li><a href="/u/home?p=<%=page.pagenum-1%>">上一页</a></li>
+				  <%}%>
+				  <% if(page.pagenum == page.pageCount || page.pageCount == 0){ %>
+				  <li class="disabled"><a href="javscript:void(-1);">下一页</a></li>
+				  <li class="disabled"><a href="javscript:void(-1);">&raquo;</a></li>
+				  <% }else{ %>
+				  <li><a href="/u/home?p=<%=page.pagenum+1%>">下一页</a></li>
+				  <li><a href="/u/home?p=<%=page.pageCount%>">&raquo;</a></li>
+				  <%}%>
+				  <li>
+				  <h4 class="text-muted" style="line-height:35px">第<%=page.pagenum%>/<%=page.pageCount%>页-<%=page.total%>条记录</h4></li>
+				</ul>
+			</div>
+		   <!-- 分页结束 -->
+		   <% } %>
+	 </div>	<!-- ./end wrap -->
+    </div>
+    <%- include common/footer%>
+    <script>
+	$("#gxbtn").click(function(){
+		var gxval = $("#inputgexing").val();
+		if(gxval==""){
+			alert("个性签名不能为空！");
+			return;
+		}
+		$.post("/moodsign/publish",{"gx":gxval},function(data){
+			$("#debugalert label").html(data.msg);
+			if(data.success){
+				$("#moodsignid").text(gxval);
+				$("#debugalert").addClass("alert-success").show();
+			}else{
+				$("#debugalert").addClass("alert-danger").show();
+			}
+		});
+	});
+    </script>
+  </body>
+  </html>

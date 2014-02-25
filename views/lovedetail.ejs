@@ -1,0 +1,90 @@
+<%- include common/header%>
+  <body>
+    <div id="wrap">
+    <!-- start navbar -->
+    <%- include common/navbar%>
+	  <!--  ./end navbar -->
+    <!--  昵称和心情 -->
+     <div class="container text-center">
+     	<h1><%=user.nickname%><p class="small"><span class="glyphicon glyphicon-flag"></span><%=user.moodsign%></p></h1>
+     </div>
+	 <div class="container">
+	  <div class="row">
+	     <div class="col-md-3">
+			<!--  代办事情组 -->
+      <%- include common/leftbar%>
+			<!-- ./结束代办事情组 -->
+		 </div>
+		 <div class="panel panel-danger col-md-9">
+          <!-- Default panel contents -->
+          <div class="panel-heading">
+			        <h3 style="font-weight:bold"><%=blog.title%>
+              <a href="/admin/upt/<%=blog._id%>" class="btn btn-primary pull-right" style="line-height:35px;width:70px">修  改</a>
+              </h3>
+            	<ul class="small list-inline text-muted">
+                <li>发表于：<%= dateformat(blog.posttime,'YYYY-MM-DD HH:mm:ss')%></li>
+                <li>浏览数：<%=blog.pvnum%></li>
+                <li>回复数：<%=blog.replynum%></li>
+              </ul>
+          </div>
+          <div class="panel-body">
+          <div style="padding-bottom:20px;"><%-blog.postcontent%></div>
+          <div id="replymao" style="margin-top:20px;">
+          		<div class="page-header" style="font-weight:bold">各方看法：</div>
+                <% if(replylist.length==0){ %>
+                  <h4 class="text-center">小二，赶紧抢沙发喽。。。</h4>
+                <%}
+                 replylist.forEach(function(reply,index){
+                %>
+          	 	     <blockquote>
+                	    <p class="text-danger">
+                      <%if(index==0){%>沙发<%}else if(index==1){%>板凳<%}else{%><%=index+1%>楼<%}%>
+                      </p>
+                      <p><%=reply.replycontent%></p>
+                      <small>
+                      <%if(user.username == reply.author){%>
+                        博主自己
+                      <%}else{%>
+                       <a href="/s/<%=reply.author%>"><%=reply.author%></a>
+                      <%}%>
+                      <span style="padding-left:10px;"><%= dateformat(reply.replytime,'YYYY-MM-DD HH:mm:ss')%></span>
+                      <a href='/r/del/<%=reply._id%>' style="padding-left:10px"
+                       onclick='if(confirm("是否确定删除？")) return true; else return false;'>删除<a/>
+                      </small>
+                    </blockquote>
+                  <% })%>
+              </div>
+          </div>
+          <div class="panel-footer">
+          	 <form id="replyform" class="form-horizontal" role="form" action="/r/post" method="post">
+              <input type="hidden" name="blog_id" value="<%=blog._id%>"/>
+              <input type="hidden" name="replycontent"/>
+             	<div class="form-group">
+                    <textarea id="ldiscuss" class="form-control" rows="10" width="100%"></textarea>
+                </div>
+                <button id="replybtn" type="button" class="btn btn-primary btn-lg btn-block" data-loading-text="正在发表...">发表看法</button>
+             </form>
+          </div>
+    	</div> <!-- ./end panel -->
+      </div>
+	 </div>
+   </div>
+   <%- include common/footer%>
+   <script charset="utf-8" src="/javascripts/kindeditor-4.1.9/kindeditor-min.js"></script>
+   <script charset="utf-8" src="/javascripts/kindeditor-4.1.9/lang/zh_CN.js"></script>
+   <script>
+   $(function(){
+    KindEditor.ready(function(K) {
+      window.editor = K.create('#ldiscuss');
+    });
+    $("#replybtn").click(function(){
+      if(editor.html()=="" || editor.html().length < 20){
+        alert("请输入你的看法，且至少20个字符。");return;
+      }
+      $("input[name='replycontent']").val(editor.html());
+      $("#replyform").submit();
+    });
+   })
+   </script>
+  </body>
+  </html>

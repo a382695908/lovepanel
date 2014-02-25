@@ -1,0 +1,125 @@
+<%- include common/header%>
+  <body>
+    <div id="wrap">
+	<!-- start navbar -->
+	<div class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand love-logo" href="/">&nbsp;</a>
+			</div>
+		</div>
+	</div>
+	  <div id="lp-register" class="container">
+			<div class="hei_513 panel panel-default">
+				<div class="panel-heading">
+					<strong style="font-size:24px;">注册LovePanel账号</strong>
+					<p class="small lp-caption">LovePanel账户可以秀爱情，展示你我风采。如果您已拥有LovePanel帐户，则可<a href="login">在此登录</a></p>
+				</div>
+				<div class="panel-body">
+					<% if(error){ %>
+					<div class="alert alert-danger alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					    <label>Oh,No!</label> <%= error %>
+					 </div>
+					 <% } %>
+					<form id="myform" class="form-horizontal" role="form" action="register" method="post">
+						<div class="form-group">
+							<label for="inputUsername" class="col-md-2 control-label">账号：</label>
+							<div class="col-md-5">
+								<input type="text" name="username" class="form-control" id="inputUsername" placeholder="请输入账号" check-type="required" required-message="必须为6位以上的数字/字母/下划线" >
+								<div class="label label-warning">提示：用户名必须为6位以上的数字、字母、下划线组成！</div>
+								<button id="ckvalidbtn" type="button" class="btn btn-default" data-loading-text="正在检查中..." >检查可用性</button>
+								<span id="ckvalidMsg" class="label label-info"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputNickname" class="col-md-2 control-label">昵称：</label>
+							<div class="col-md-5">
+								<input type="text" name="nickname" class="form-control" id="inputNickname" placeholder="请输入昵称"  check-type="required" required-message="昵称不能为空！">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword" class="col-md-2 control-label">设置密码：</label>
+							<div class="col-md-5">
+								<input type="password" name="password" class="form-control" id="inputPassword" placeholder="请设置密码" check-type="required" minlength="6">
+							<div class="label label-warning">提示：密码必须为6位以上随机组合！</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputTwoPassword" class="col-md-2 control-label">确认密码：</label>
+							<div class="col-md-5">
+								<input type="password" name="twoPassword" class="form-control" id="inputTwoPassword" placeholder="请输入确认密码" check-type="required" minlength="6">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail" class="col-md-2 control-label">邮箱：</label>
+							<div class="input-group col-md-5">
+								<input type="text" name="email" class="form-control" id="inputEmail" placeholder="请输入电子邮箱" check-type="required mail">
+								<div class="label label-warning">提示：邮箱必须真实，可通过邮箱找回密码！</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-offset-2 col-md-4">
+							  <button id="regbtn" type="button" class="btn btn-danger btn-lg btn-block" disabled="disabled" data-loading-text="正在注册...">立即注册</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="panel-footer text-center">
+					<small>点击“立即注册”，即表示您同意并愿意遵守<abbr title="这是个好网站">爱情面板</abbr>用户准则的协议和隐私政策</small>
+				</div>
+			</div>
+	  </div>
+	</div><!--  ./end wrap-->
+	<!-- 页尾 -->
+    <div id="footer">
+       <div class="container text-center">
+	      <p class="text-muted credit"><abbr title="这是个好网站">爱情面板</abbr>©2013 All Rights Reserved <a href="http://aokunsang.iteye.com">王坤</a> and 
+		  <a href="http://user.qzone.qq.com/364164801">孙小爽</a>。
+		  <br/>Powered By aokunsang<br/><a href="#">京ICP备11008151号</a>
+		  <object data="music/dewplayer-vol.swf" width="40" height="20" name="dewplayer" id="dewplayerjs" type="application/x-shockwave-flash">
+			<param name="movie" value="music/dewplayer-vol.swf" />
+			<param name="flashvars" value="mp3=music/mp3/love.mp3&volume=100&showtime=false&autostart=true&autoreplay=true&javascript=off" />
+			<param name="wmode" value="transparent" />
+		 </object>
+		  </p>
+	   </div>
+	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/javascripts/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <!-- bootstrap validation plugin -->
+    <script src="/javascripts/bootstrap3-validation.js"></script>
+    <script>
+	$(function(){
+	   $('#myform').validation();
+	   $("#regbtn").click(function(){
+	   	 if($('#myform').valid()){
+	   	 	$(this).button("loading");
+	   	 	$('#myform').submit();
+	   	 }
+	   });
+	   $("#ckvalidbtn").click(function(){
+	   	  var _username = $("input[name='username']").val();
+	   	  var _ckvalidbtn = $(this);
+	   	  if(!/\w{6,}/.test(_username)){
+	   	  	alert("你输入的账号不符合规则！");return;
+	   	  }
+	   	  _ckvalidbtn.button("loading");
+	   	  $.post("/checkUsername",{username:_username},function(data){
+	   	  	$("#ckvalidMsg").text(data.msg);
+	   	  	_ckvalidbtn.button("reset");
+	   	  	if(data.success){  //可用
+	   	  		$("#regbtn").prop("disabled","");
+	   	  	}
+	   	  });
+	   });
+	})
+   </script>
+  </body>
+</html>

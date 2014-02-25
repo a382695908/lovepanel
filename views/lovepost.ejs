@@ -1,0 +1,113 @@
+<%- include common/header%>
+  <body>
+    <div id="wrap">
+    <!-- start navbar -->
+	 <%- include common/navbar%>
+     <!--  ./end navbar -->
+    <!--  昵称和心情 -->
+     <div class="container text-center">
+     	<h1><%= user.nickname%><p class="small"><span class="glyphicon glyphicon-flag"></span><%= user.moodsign%></p></h1>
+     </div>
+	 <div class="container">
+	  <div class="row">
+	     <div class="col-md-3">
+			<!--  代办事情组 -->
+			<%- include common/leftbar%>
+            <!-- ./结束代办事情组 -->
+		 </div>
+		 <div class="panel panel-default col-md-9">
+          <!-- Default panel contents -->
+          <div class="panel-heading">
+			<div class="panel-title">发表爱情日志</div>       
+          </div>
+          <div class="panel-body">
+            <% if(error){ %>
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <label>Oh,No!</label> <%= error %>
+             </div>
+             <% } %>
+          	 <form id="postform" class="form-horizontal" role="form" method="post" action="/b/post" enctype='multipart/form-data'>
+                <input type="hidden" name="postcontent"/>
+             	<div class="form-group">
+                	<label for="ltitle" class="col-md-3 control-label text-right">爱情日志标题：</label>
+                    <div class="col-md-8">
+                    	<input type="text" name="title" class="form-control text-left" id="ltitle" placeholder="请输入爱情日志标题" check-type="required" required-message="日志标题不能为空！">
+                    </div>
+                </div>
+                <div class="form-group">
+                	<label class="col-md-3 control-label text-right" for="ishow">秀张靓照：</label>
+                     <div class="col-md-8">
+                    	<label class="radio-inline">
+                          <input type="radio" name="ishow" id="inlineCheckbox1" value="1" onclick="$('#_fimg').show();" checked>秀一下
+                        </label>
+                        <label class="radio-inline">
+            		         <input type="radio" name="ishow" id="inlineCheckbox2" value="0" onclick="$('#_fimg').hide();">还是不秀了
+                        </label>
+                    </div>
+                </div>
+                <span id="_fimg" >
+                 <div class="form-group">
+                	<label class="col-md-3 control-label text-right" for="fimg">上传照片：</label>
+                     <div class="col-md-8">
+                    	<input class="form-control" type="file" name="fimg">
+                         <span class="label label-warning">注意：图片的宽度最好是200px(高度不限)；否则系统将自动按比例切割。</span>
+                    </div>
+                </div>
+                <div id="_fimg" class="form-group">
+                	<label class="col-md-3 control-label text-right" for="imgdesc">照片描述：</label>
+                     <div class="col-md-8">
+                    	<input class="form-control" type="text" name="imgdesc" maxlength="30">
+                         <span class="label label-warning">注意：字数尽量控制在30个以内。</span>
+                    </div>
+                </div>
+                </span>
+                <div class="form-group">
+                 	<label class="col-md-3 control-label text-right">是否设置为隐私：</label>
+                 	<div class="col-md-8">
+                    	<div class="checkbox">
+                        <label>
+                          <input name="visibility" type="checkbox" value="0">
+                        </label>
+                      </div>
+					</div>		                 	
+                 </div>
+                 <div class="form-group">
+                 	<div class="col-md-1"></div>
+                 	<div class="col-md-10">
+                    	<textarea id="ldesc" class="form-control" rows="20"></textarea>
+					</div>		                 	
+                 </div>
+             </form>
+          </div>     
+        <div class="panel-footer">
+        	<button class="btn btn-primary btn-block btn-lg" type="button" id="postbtn" data-loading-text="正在发表日志...">发表日志</button>
+        </div>
+        </div>
+		</div> <!-- ./end row -->
+	  </div> <!--  ./end container -->
+    </div> <!-- ./end wrap -->
+     <%- include common/footer%>
+     <script charset="utf-8" src="/javascripts/kindeditor-4.1.9/kindeditor-min.js"></script>
+     <script charset="utf-8" src="/javascripts/kindeditor-4.1.9/lang/zh_CN.js"></script>
+     <script>
+        $(function(){
+            $('#postform').validation();
+            KindEditor.ready(function(K) {
+                window.editor = K.create('#ldesc');
+            });
+            $("#postbtn").click(function(){
+                if($('#postform').valid()){
+                    if($('input[name="ishow"]:checked').val() && !$('input[name="fimg"]').val()){
+                        alert("亲，你还没有上传图片呢。");
+                        return;
+                    }
+                    $(this).button("loading");
+                    $("input[name='postcontent']").val(editor.html());
+                    $("#postform").submit();
+                }
+            });
+        })
+	</script>
+  </body>
+  </html>	

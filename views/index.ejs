@@ -1,0 +1,163 @@
+<%- include common/header%>
+<body data-spy="scroll" data-target="#lovepanelnav">
+    <div id="wrap">
+	<!-- start navbar -->
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#lovepanelnav">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand love-logo" href="#">&nbsp;</a>
+			</div>
+			<div class="collapse navbar-collapse" id="lovepanelnav">
+				<ul class="nav nav-pills navbar-nav">
+					<li class="active">
+					<a href="#wrap"><span class="glyphicon glyphicon-home mg-r-5"></span>首页</a><li>
+					<li><a href="#lovellk"><span class="glyphicon glyphicon-eye-open mg-r-5"></span>爱情连连看</a></li>
+					<li><a href="#lovegc"><span class="glyphicon glyphicon-fire mg-r-5"></span>爱情广场</a></li>
+					<li><a href="#loveml"><span class="glyphicon glyphicon-euro mg-r-5"></span>爱情魔力</a></li>
+					<li><a href="/u/home"><span class="glyphicon glyphicon-gbp mg-r-5"></span>我的主页</a></li>
+				</ul>
+				<% if(user) { %>
+					<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;<%= user.username%><b class="caret"></b></a>
+					<ul class="dropdown-menu">
+					  <li><a href="/u/upt">个人信息</a></li>
+					  <li><a href="/u/modifypwd">修改密码</a></li>
+					  <li><a href="reckme.html">与我有关</a></li>
+					  <li class="divider"></li>
+					  <li><a href="/logout">安全退出</a></li>
+					</ul>
+				  </li>
+				</ul>
+				<% }else{ %>
+				<p class="navbar-text navbar-right">
+					<a style="color:#FFEBCD" href="/login">亲，请登录</a>&nbsp;|&nbsp;<a href="/register"><span class="text-info">免费注册</span></a>
+				</p>
+				<% } %>
+			</div>
+		</div>
+	</div>  <!--  ./end navbar -->
+	<!-- carousel start -->
+	<div id="lp-carousel" class="carousel slide" data-interval="10000" data-ride="carousel">
+	  <!-- Indicators -->
+	  <ol class="carousel-indicators">
+		<li data-target="#lp-carousel" data-slide-to="0" class="active"></li>
+		<li data-target="#lp-carousel" data-slide-to="1"></li>
+		<li data-target="#lp-carousel" data-slide-to="2"></li>
+		<li data-target="#lp-carousel" data-slide-to="3"></li>
+	  </ol>
+
+	  <div class="carousel-inner">
+		<div class="item active">
+		  <img src="images/index/carousel_0_0.jpg" alt="..." class="img-responsive">
+		  <div class="carousel-caption">
+              <h4>凤凰台上凤凰游，负约而去，一夜苦等，从此江南江北，万里哀哭。------ 白居易</h4>
+		  </div>
+		</div>
+		<div class="item">
+		  <img src="images/index/carousel_1_1.jpg" alt="..." class="img-responsive">
+		  <div class="carousel-caption">
+              <h4>曾经有一份真挚的感情摆在我的面前我没有珍惜，等我失去的时候才追悔莫及，人间最痛苦的事莫过于此！如果上天能给我一次再来一次的机会，我会对那个女孩说三个字：我爱你，如果非要在这份爱上加一个期限，我希望是一万年！------ 至尊宝
+			  </h4>
+		  </div>
+		</div>
+		<div class="item">
+		  <img src="images/index/carousel_2_2.jpg" alt="..." class="img-responsive">
+            <div class="carousel-caption">
+              <h4>染火枫林，琼壶歌月，长歌倚楼。 岁岁年年，花前月下，一尊芳酒。 水落红莲，唯闻玉磬，但此情依旧。------ 孙爽</h4>
+            </div>
+		</div>
+		<div class="item">
+		  <img src="images/index/carousel_3_3.jpg" alt="..." class="img-responsive">
+            <div class="carousel-caption">
+              <h4>看那天地日月，恒静无言；青山长河，世代绵延；就像在我心中，你从未离去，也从未改变。---- 王坤</h4>
+            </div>
+		</div>
+	  </div>
+	  <!-- left/right Controls -->
+	  <a class="left carousel-control" href="#lp-carousel" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+	  </a>
+	  <a class="right carousel-control" href="#lp-carousel" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+	  </a>
+	</div> <!-- ./carousel end -->
+
+	<!--  详细内容开始 -->
+	<div class="container">
+
+	   <!-- 爱情连连看 -->
+	   <div id="lovellk" class="row">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<img src="images/index/0.jpg" alt="" class="img-responsive">
+					<div class="caption">
+						<h3>南秦雪 -- 唐·元稹</h3>
+						<p>才见岭头云似盖，已惊岩下雪如尘。千峰笋石千株玉，万树松萝万朵云 </p>
+						<p><a href="lovelist.html" role="button" class="btn btn-primary btn-lg">查看更多</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<img src="images/index/0.jpg" alt="" class="img-responsive">
+					<div class="caption">
+						<h3>南秦雪 -- 唐·元稹</h3>
+						<p>才见岭头云似盖，已惊岩下雪如尘。千峰笋石千株玉，万树松萝万朵云 </p>
+						<p><a href="lovelist.html" role="button" class="btn btn-primary btn-lg">查看更多</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<img src="images/index/0.jpg" alt="" class="img-responsive">
+					<div class="caption">
+						<h3>南秦雪 -- 唐·元稹</h3>
+						<p>才见岭头云似盖，已惊岩下雪如尘。千峰笋石千株玉，万树松萝万朵云 </p>
+						<p><a href="lovelist.html" role="button" class="btn btn-primary btn-lg">查看更多</a></p>
+					</div>
+				</div>
+			</div>
+	   </div>
+	   
+	   <hr id="lovegc" class="divider"/>
+	    
+	    <!-- 爱情广场 -->
+	    <div class="row">
+			<div class="col-md-7">
+				<h2>爱情广场<p class="small">这是一个秀爱情的地方</p></h2>
+				<p class="lead">亮躬耕陇亩，好（hào）为《梁父（fǔ）吟》。①身长八尺，每自比于管仲、乐（yuè）毅，时人莫之许也。惟博陵崔州平、颍川徐庶元直与亮友善，谓为信然。<br/>时先主屯新野。徐庶见先主，先主器之，谓先主曰："诸葛孔明者，卧龙也，将军岂愿见之乎？"先主曰：“君与俱来。”庶曰：“此人可就见，不可屈致也。将军宜枉驾顾之。”</p>
+				<a href="list.html" class="btn btn-primary btn-lg pull-left">更多精彩</a>
+			</div>
+			<div class="col-md-5">
+				<img src="images/index/0.jpg" alt="..." class="img-thumbnail img-responsive">
+			</div>
+	    </div>
+
+		<hr id="loveml" class="divider"/>
+		
+		<!-- 爱情魔力 -->
+		<div class="row">
+			<div class="container">
+				<div class="col-md-7">
+					<img src="images/index/0.jpg" alt="..." class="img-thumbnail img-responsive">
+				</div>
+				<div class="col-md-5">
+					<h2>爱情魔力<p class="small">魔力爱情从这里开始</p></h2>
+					<p class="lead">吾以炎帝萧炎之名，敕天下万火，听本帝号令！<br/> “异火榜第二十三，玄黄炎，归位！”<br/>“异火榜第二十二，万兽灵火，归位！”<br/>“异火榜第二十一，骨灵冷火，归位！”<br/>“异火榜第二十一，青莲地心火，归位！”<br/>“异火榜第二十一，九幽金祖火，归位！”<br/>“异火榜第二十，净莲妖火，归位！”<br/>。。。。<br/>“成王败寇，不讲过程，今日我若为胜者，他日臭名，自然有你背负！”</p>
+					<a href="/lovemagic" class="btn btn-primary btn-lg pull-left">更多精彩</a>
+				</div>
+			</div>
+	   </div>
+	</div> <!-- 详细内容结束 -->
+	</div> <!-- ./end wrap -->
+	
+   <%- include common/footer%>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!-- start navbar -->
+<div class="navbar navbar-default" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#lovepanelnav">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand love-logo" href="/">&nbsp;</a>
+		</div>
+		<div class="collapse navbar-collapse" id="lovepanelnav">
+			<ul class="nav nav-pills navbar-nav">
+				<li>
+				<a href="/"><span class="glyphicon glyphicon-home mg-r-5"></span>首页</a><li>
+				<li><a href="lovelist.html"><span class="glyphicon glyphicon-eye-open mg-r-5"></span>爱情连连看</a></li>
+				<li><a href="list.html"><span class="glyphicon glyphicon-fire mg-r-5"></span>爱情广场</a></li>
+				<li><a href="/lovemagic"><span class="glyphicon glyphicon-euro mg-r-5"></span>爱情魔力</a></li>
+				<li class="active"><a href="/u/home"><span class="glyphicon glyphicon-gbp mg-r-5"></span>我的主页</a></li>
+			</ul>
+			<% if(user) { %>
+				<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;<%= user.username%><b class="caret"></b></a>
+				<ul class="dropdown-menu">
+				  <li><a href="/u/upt">个人信息</a></li>
+				  <li><a href="/u/modifypwd">修改密码</a></li>
+				  <li><a href="/admin/reckme">与我有关</a></li>
+				  <li class="divider"></li>
+				  <li><a href="/logout">安全退出</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<% }else{ %>
+			<p class="navbar-text navbar-right">
+				<a style="color:#FFEBCD" href="/login">亲，请登录</a>&nbsp;|&nbsp;<a href="/register"><span class="text-info">免费注册</span></a>
+			</p>
+			<% } %>
+		</div>
+	</div>
+</div>  
+<!--  ./end navbar -->

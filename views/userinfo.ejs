@@ -1,0 +1,96 @@
+<%- include common/header%>
+ <link href="/stylesheets/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+  <body>
+    <div id="wrap">
+    <!-- start navbar -->
+    <%- include common/navbar%>
+	  <!--  ./end navbar -->
+    <!--  昵称和心情 -->
+     <div class="container text-center">
+     	<h1><%=user.nickname%><p class="small"><span class="glyphicon glyphicon-flag"></span><%=user.moodsign%></p></h1>
+     </div>
+	 <div class="container">
+	  <div class="row">
+	     <div class="col-md-3">
+    			<!--  代办事情组 -->
+    			<%- include common/leftbar%>
+          <!-- ./结束代办事情组 -->
+  		 </div>
+		<div class="panel panel-default col-md-9">
+      <!-- Default panel contents -->
+          <div class="panel-heading">
+    			   <div class="panel-title">修改用户信息</div>          
+          </div>
+          <div class="panel-body">
+            <% if(success){ %>
+            <div class="alert alert-success alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <label>恭喜你!</label><%= success %>
+            </div>
+           <% } %>
+          	<form id="myform" class="form-horizontal" role="form" method="post" action="/u/upt">
+            	<div class="form-group">
+                	<label for="ltitle" class="col-md-3 control-label">用户名：</label>
+                    <div class="col-md-8">
+                    	<p class="form-control-static text-left"><%=user.username%></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nickname" class="col-md-3 control-label">昵称：</label>
+                    <div class="col-md-8">
+                      <input type="text" name="nickname" class="form-control" id="nickname" value="<%=user.nickname%>" placeholder="请输入昵称" check-type="required" required-message="昵称不能为空！">
+             	    </div>
+                </div>
+				        <div class="form-group">
+                    <label for="inputGender" class="col-md-3 control-label">性别：</label>
+                    <div class="col-md-8">
+                      <label class="radio-inline"><input type="radio" name="gender" id="inputGender1" <%if(user.gender){%>checked<%}%>>男</label>
+                      <label class="radio-inline"><input type="radio" name="gender" id="inputGender2" <%if(!user.gender){%>checked<%}%>>女</label>
+             	       </div>
+                </div>
+				        <div class="form-group">
+                  <label for="inputDate" class="col-md-3 control-label">出生日期：</label>
+                  <div class="input-group date form_date col-md-5" data-link-field="inputDate">
+        						<input class="form-control" size="16" name="birthday" type="text" readonly value="<%=user.birthday%>">
+        						<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+        						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+         	        </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="col-md-3 control-label">电子邮箱：</label>
+                    <div class="col-md-8">
+                      <input type="text" name="email" class="form-control" id="inputEmail" value="<%=user.email%>" placeholder="请输入邮箱" check-type="required mail">
+             	      </div>
+               </div>
+            </form>
+          </div>
+          <div class="panel-footer">
+          	<button id="uptbtn" type="button" class="btn btn-lg btn-primary btn-block" data-loading-text="正在修改...">确认修改</button>
+          </div>
+        </div>
+      </div>
+	 </div>
+    </div>
+  <%- include common/footer%>
+	<script type="text/javascript" src="/javascripts/datetimepicker/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="/javascripts/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+	<script>
+  $(function(){
+      $('.form_date').datetimepicker({
+        language:  'zh-CN',
+        autoclose: true,
+        format: "yyyy-mm-dd",
+        maxView : 4,
+        minView : 2
+      });
+      $('#myform').validation();
+      $("#uptbtn").click(function(){
+         if($('#myform').valid()){
+            $(this).button("loading");
+            $("#myform").submit();
+         }
+      })
+  })
+	</script>
+  </body>
+  </html>

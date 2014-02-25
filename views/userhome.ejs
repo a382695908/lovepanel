@@ -1,0 +1,68 @@
+<%- include common/header%>
+  <body>
+    <div id="wrap">
+    <!-- start navbar -->
+    <%- include common/navbar%>
+    <!--  ./end navbar -->
+    <!--  昵称和心情 -->
+     <div class="container text-center">
+     	<h1><%= userinfo.nickname%><p class="small"><span class="glyphicon glyphicon-flag"></span><%= userinfo.moodsign%></p></h1>
+     </div>
+	 <div class="container">
+			<!-- 日志列表开始 -->
+			<div class="list-group">
+			   <% if(bloglist.length==0){ %>
+			   	    <a href="javascript:void(-1);" class="love-group-item">
+                       <h3 class="text-center" style="line-height:300px;">博主估计是枚懒蛋儿，还没有发表一篇博客呢。</h3>
+                    </a>
+			   <% } 
+			   	  bloglist.forEach(function(blog,index){
+                %>
+               <a href="javascript:void(-1);" class="love-group-item">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<div class="small">发表时间：<%= dateformat(blog.posttime,'YYYY-MM-DD HH:mm:ss')%></div>
+						<h3><%=blog.title%></h3>
+						<ul class="small list-inline text-muted">
+		                  <li>浏览数：<%=blog.pvnum%></li>
+		                  <li>回复数：<%=blog.replynum%></li>
+		                  <li>顶：<%=blog.yesnum%></li>
+		                  <li>踩：<%=blog.nonum%></li>
+		                </ul>
+					</div>
+					<div class="panel-body"><%- ellipsis(blog.postcontent,300) %>...</div>
+					<div class="panel-footer">
+						<button class="btn btn-primary" onClick="location.href='/b/<%=blog._id%>'">阅读全文</button>
+					</div>
+				</div>
+			  </a>
+			  <% })%>
+		</div>
+		<% if(bloglist.length > 0) { %>
+		<!-- 分页开始 -->
+		<div class="text-center" style="background-color: white;border: 1px solid #DDD;margin-top:-20px">
+			<ul class="pagination pagination-lg">
+			  <% if(page.pagenum <= 1){ %>
+			  <li class="disabled"><a href="javscript:void(-1);">&laquo;</a></li>
+			  <li class="disabled"><a href="javscript:void(-1);">上一页</a></li>
+			  <% }else{ %>
+			  <li><a href="/s/<%=userinfo.username%>?p=1">&laquo;</a></li>
+			  <li><a href="/s/<%=userinfo.username%>?p=<%=page.pagenum-1%>">上一页</a></li>
+			  <%}%>
+			  <% if(page.pagenum == page.pageCount || page.pageCount == 0){ %>
+			  <li class="disabled"><a href="javscript:void(-1);">下一页</a></li>
+			  <li class="disabled"><a href="javscript:void(-1);">&raquo;</a></li>
+			  <% }else{ %>
+			  <li><a href="/s/<%=userinfo.username%>?p=<%=page.pagenum+1%>">下一页</a></li>
+			  <li><a href="/s/<%=userinfo.username%>?p=<%=page.pageCount%>">&raquo;</a></li>
+			  <%}%>
+			  <li><h4 class="text-muted" style="line-height:35px">第<%=page.pagenum%>/<%=page.pageCount%>页-<%=page.total%>条记录</h4></li>
+			</ul>
+		</div>
+	   <!-- 分页结束 -->
+	   <% } %>
+	 </div> <!-- ./end container -->
+    </div>	<!-- ./end wrap -->
+    <%- include common/footer%>
+  </body>
+  </html>
